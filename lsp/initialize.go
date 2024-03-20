@@ -25,7 +25,9 @@ type InitializeResult struct {
 	ServerInfo   ServerInfo        `json:"serverInfo"`
 }
 
-type ServerCapabilites struct{}
+type ServerCapabilites struct {
+	TextDocumentSync int `json:"textDocumentSync"`
+}
 
 type ServerInfo struct {
 	Name    string `json:"name"`
@@ -39,7 +41,9 @@ func NewInitializeResponse(id int) InitializeResponse {
 			ID:  &id,
 		},
 		Result: InitializeResult{
-			Capabilities: ServerCapabilites{},
+			Capabilities: ServerCapabilites{
+				TextDocumentSync: 1,
+			},
 			ServerInfo: ServerInfo{
 				Name:    "build-a-lsp",
 				Version: "0.0.0.0.0.0-alaph1.final"},
