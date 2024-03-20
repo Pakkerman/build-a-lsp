@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
+	"build-a-lsp/lsp"
 	"build-a-lsp/rpc"
+	"encoding/json"
 	"log"
 	"os"
 )
@@ -15,13 +17,38 @@ func main() {
 	scanner.Split(rpc.Split)
 
 	for scanner.Scan() {
-		msg := scanner.Text()
-		handleMessage(logger, msg)
+		msg := scanner.Bytes()
+		method, contents, err := rpc.DecodeMessage(msg)
+		if err != nil {
+			logger.Printf("Got an error: %s", err)
+			continue
+		}
+		handleMessage(logger, method, contents)
 	}
 }
 
-func handleMessage(logger *log.Logger, msg any) {
-	logger.Println(msg)
+func handleMessage(logger *log.Logger, method any, contents []byte) {
+	logger.Printf("Received msg with method: %s", method)
+
+	switch method {
+	case "initialize":
+		var request lsp.InitializeRequest
+		if err := json.Unmarshal(contents, &request); err != nil {
+			logger.Printf("Cant do anything with this: %s", err)
+		}
+		logger.Printf("Connect to :%s %s",
+			request.Params.ClientInfo.Name,
+			request.Params.ClientInfo.Version)
+
+		// reply
+		msg := lsp.NewInitializeResponse(request.ID)
+		reply := rpc.EncodeMessage(msg)
+
+		writer := os.Stdout
+		writer.Write([]byte(reply))
+
+		logger.Print("sent the reply")
+	}
 
 }
 
