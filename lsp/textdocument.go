@@ -1,8 +1,20 @@
 package lsp
 
 type TextDocumentItem struct {
-	URI        string `json:"uri"`
+	// The text document's URI.
+	URI string `json:"uri"`
+	// The document's language identifier.
 	LanguageID string `json:"languageId"`
-	Version    string `json:"version"`
-	Text       string `json:"text"`
+	// The version number of this document (it will increase after each change, include undo/redo).
+	Version string `json:"version"`
+	// The content of the opened text document.
+	Text string `json:"text"`
+}
+
+type TextDocumentIdentifier struct {
+	URI string `json:"uri"`
+}
+type VersionTextDocumentIdentifier struct {
+	TextDocumentIdentifier
+	Version int `json:"version"`
 }
