@@ -3,6 +3,7 @@ package analysis
 import (
 	"build-a-lsp/lsp"
 	"fmt"
+	"strings"
 )
 
 type State struct {
@@ -58,6 +59,86 @@ func (s *State) Definition(id int, uri string, position lsp.Position) lsp.Defini
 					Character: 0,
 				},
 			},
+		},
+	}
+}
+
+func (s *State) TextDocumentCodeAction(id int, uri string) lsp.TextDocumentCodeActionResponse {
+	text := s.Document[uri]
+
+	actions := []lsp.CodeAction{}
+	for row, line := range strings.Split(text, "\n") {
+		idx := strings.Index(line, "VS Code")
+		if idx >= 0 {
+			replaceChange := map[string][]lsp.TextEdit{}
+			replaceChange[uri] = []lsp.TextEdit{
+				{
+					Range:   LineRange(row, idx, idx+len("VS Code")),
+					NewText: "Neovim",
+				},
+			}
+
+			actions = append(actions, lsp.CodeAction{
+				Title: "Replace VS Code with a superior editor",
+				Edit:  &lsp.WorkspaceEdit{Changes: replaceChange},
+			})
+
+			censorChange := map[string][]lsp.TextEdit{}
+			censorChange[uri] = []lsp.TextEdit{
+				{
+
+					Range:   LineRange(row, idx, idx+len("VS Code")),
+					NewText: "VS C*de",
+				},
+			}
+			actions = append(actions, lsp.CodeAction{
+				Title: "Censor VS C*de",
+				Edit:  &lsp.WorkspaceEdit{Changes: censorChange},
+			})
+		}
+
+	}
+
+	response := lsp.TextDocumentCodeActionResponse{
+		Response: lsp.Response{
+			RPC: "2.0",
+			ID:  &id,
+		},
+		Result: actions,
+	}
+	return response
+}
+
+func (s *State) TextDocumentCompletion(id int, uri string) lsp.CompletionResponse {
+	items := []lsp.CompletionItem{
+		{
+			Label:         "Neovim (BTW)",
+			Detail:        "Very cool editor and blazingly fast",
+			Documentation: "Yayayayayayayaaaaaaaaas",
+		}}
+
+	// Ask your static analysis tools to figure out good completions
+
+	response := lsp.CompletionResponse{
+		Response: lsp.Response{
+			RPC: "2.0",
+			ID:  &id,
+		},
+		Result: items,
+	}
+	return response
+}
+
+func LineRange(line, start, end int) lsp.Range {
+	return lsp.Range{
+		Start: lsp.Position{
+			Line:      line,
+			Character: start,
+		},
+		End: lsp.Position{
+
+			Line:      line,
+			Character: end,
 		},
 	}
 }

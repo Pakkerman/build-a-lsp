@@ -1,15 +1,31 @@
-[build-a-lsp]2024/03/21 14:40:38 main.go:16: hello, there
-[build-a-lsp]2024/03/21 14:40:38 main.go:36: Received msg with method: initialize
-[build-a-lsp]2024/03/21 14:40:38 main.go:44: Connect to :Neovim 0.9.5
-[build-a-lsp]2024/03/21 14:40:38 main.go:52: sent the reply
-[build-a-lsp]2024/03/21 14:40:38 main.go:36: Received msg with method: initialized
-[build-a-lsp]2024/03/21 14:40:38 main.go:36: Received msg with method: textDocument/didOpen
-[build-a-lsp]2024/03/21 14:40:38 main.go:57: textDocument/didOpen: json: cannot unmarshal number into Go struct field TextDocumentItem.params.textDocument.version of type string
-[build-a-lsp]2024/03/21 14:40:46 main.go:36: Received msg with method: textDocument/definition
-[build-a-lsp]2024/03/21 14:40:48 main.go:36: Received msg with method: textDocument/definition
-[build-a-lsp]2024/03/21 14:40:50 main.go:36: Received msg with method: textDocument/definition
-[build-a-lsp]2024/03/21 14:40:58 main.go:36: Received msg with method: textDocument/didChange
-[build-a-lsp]2024/03/21 14:40:58 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
-[build-a-lsp]2024/03/21 14:40:59 main.go:36: Received msg with method: textDocument/didChange
-[build-a-lsp]2024/03/21 14:40:59 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
-[build-a-lsp]2024/03/21 14:41:41 main.go:36: Received msg with method: shutdown
+[build-a-lsp]2024/03/21 16:43:01 main.go:16: hello, there
+[build-a-lsp]2024/03/21 16:43:01 main.go:36: Received msg with method: initialize
+[build-a-lsp]2024/03/21 16:43:01 main.go:44: Connect to :Neovim 0.9.5
+[build-a-lsp]2024/03/21 16:43:01 main.go:52: sent the reply
+[build-a-lsp]2024/03/21 16:43:01 main.go:36: Received msg with method: initialized
+[build-a-lsp]2024/03/21 16:43:01 main.go:36: Received msg with method: textDocument/didOpen
+[build-a-lsp]2024/03/21 16:43:01 main.go:57: textDocument/didOpen: json: cannot unmarshal number into Go struct field TextDocumentItem.params.textDocument.version of type string
+[build-a-lsp]2024/03/21 16:43:03 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:03 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:04 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:04 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:04 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:04 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:05 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:05 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:06 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:06 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:06 main.go:36: Received msg with method: textDocument/completion
+[build-a-lsp]2024/03/21 16:43:07 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:07 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:07 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:07 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:07 main.go:36: Received msg with method: textDocument/completion
+[build-a-lsp]2024/03/21 16:43:11 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:11 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:16 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:16 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:16 main.go:36: Received msg with method: textDocument/didChange
+[build-a-lsp]2024/03/21 16:43:16 main.go:72: Opened: file:///Users/pakk/temp/build-lsp/README.md
+[build-a-lsp]2024/03/21 16:43:16 main.go:36: Received msg with method: textDocument/didSave
+[build-a-lsp]2024/03/21 16:43:16 main.go:36: Received msg with method: shutdown
