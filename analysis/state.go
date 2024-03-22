@@ -16,6 +16,7 @@ func NewState() State {
 }
 
 func getDiagnosticsForFile(text string) []lsp.Diagnostic {
+
 	diagnostics := []lsp.Diagnostic{}
 	for row, line := range strings.Split(text, "\n") {
 		if strings.Contains(line, "VS Code") {
@@ -36,7 +37,7 @@ func getDiagnosticsForFile(text string) []lsp.Diagnostic {
 				Range:    LineRange(row, idx, idx+len("VS C*de")),
 				Severity: 2,
 				Source:   "Common sense",
-				Message:  "Still not ideal, please change to some superior editor",
+				Message:  "Nice try, please change to some superior editor",
 			})
 		}
 	}
