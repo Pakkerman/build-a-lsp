@@ -6,7 +6,7 @@ type TextDocumentItem struct {
 	// The document's language identifier.
 	LanguageID string `json:"languageId"`
 	// The version number of this document (it will increase after each change, include undo/redo).
-	Version string `json:"version"`
+	Version int `json:"version"`
 	// The content of the opened text document.
 	Text string `json:"text"`
 }

@@ -11,3 +11,9 @@ The superior editor is: VS Code (that seen right, use code action to fix it)
 ### Issue:
 
 - LSP will not get any info before the first change of the file, might be something in conflict with lazyvim
+
+VS Code
+VS C\*de
+Neovim
+VS Code
+VS Code
